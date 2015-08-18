@@ -50,6 +50,7 @@
 			}
 
 			// example: <strong> to [b]
+			rep(/<a.*?href=\"(.*?)\" target=\"(.*?)\">(.*?)<\/a>/gi, "[link=$1 target=$2]$3[/link]");
 			rep(/<a.*?href=\"(.*?)\".*?>(.*?)<\/a>/gi, "[url=$1]$2[/url]");
 			rep(/<font.*?color=\"(.*?)\".*?class=\"codeStyle\".*?>(.*?)<\/font>/gi, "[code][color=$1]$2[/color][/code]");
 			rep(/<font.*?color=\"(.*?)\".*?class=\"quoteStyle\".*?>(.*?)<\/font>/gi, "[quote][color=$1]$2[/color][/quote]");
@@ -107,6 +108,7 @@
 			rep(/\[\/i\]/gi, "</em>");
 			rep(/\[u\]/gi, "<u>");
 			rep(/\[\/u\]/gi, "</u>");
+			rep(/\[link=([^\]]+) target=([^\]]+)\](.*?)\[\/link\]/gi, "<a href=\"$1\" target=\"$2\">$3</a>");
 			rep(/\[url=([^\]]+)\](.*?)\[\/url\]/gi, "<a href=\"$1\">$2</a>");
 			rep(/\[url\](.*?)\[\/url\]/gi, "<a href=\"$1\">$1</a>");
 			rep(/\[img\](.*?)\[\/img\]/gi, "<img src=\"$1\" />");
