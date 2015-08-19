@@ -205,7 +205,7 @@ tinymce.PluginManager.add('link', function(editor) {
 		if (editor.settings.target_list !== false) {
 			if (!editor.settings.target_list) {
 				editor.settings.target_list = [
-					{text: 'None', value: ''},
+					{text: 'Current window', value: ''},
 					{text: 'New window', value: '_blank'}
 				];
 			}
